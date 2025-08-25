@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Colorization Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #84fab0, #8fd3f4);
+            color: #333;
+            text-align: center;
+            padding: 50px 20px;
+            margin: 0;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .images-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: slideIn 1s ease-in-out;
+        }
+        .image-wrapper {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            text-align: center;
+        }
+        .image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+        .image-wrapper h2 {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        a.download-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        a.download-link:hover {
+            background: #218838;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Colorization Result</h1>
+    <div class="images-container">
+        <div class="image-wrapper">
+            <h2>Grayscale Image</h2>
+            <img src="/uploads/{{ grayscale_image }}" alt="Grayscale Image">
+        </div>
+        <div class="image-wrapper">
+            <h2>Colorized Image</h2>
+            <img src="/uploads/{{ colorized_image }}" alt="Colorized Image">
+        </div>
+    </div>
+    <a class="download-link" href="/uploads/{{ colorized_image }}" download>Download Colorized Image</a>
+</body>
+</html>
